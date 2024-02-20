@@ -11,9 +11,10 @@ class UrlController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index($shortenedUrl)
     {
-        //
+        $url = Url::where('shortened_url', $shortenedUrl)->firstOrFail();
+        return redirect($url->original_url);
     }
 
     /**
@@ -47,12 +48,6 @@ class UrlController extends Controller
 
         return redirect()->back()->with('shortened_url', url($shortenedUrl));
 
-    }
-
-    public function redirect($shortenedUrl)
-    {
-        $url = Url::where('shortened_url', $shortenedUrl)->firstOrFail();
-        return redirect($url->original_url);
     }
 
     /**

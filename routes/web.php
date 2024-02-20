@@ -20,4 +20,4 @@ Route::get('/', function () {
 
 Route::get('/create',[UrlController::class,'create']);
 Route::post('/store',[UrlController::class,'store']);
-Route::post('/redirect',[UrlController::class,'redirect']);
+Route::get('/index',[UrlController::class,'index']);
